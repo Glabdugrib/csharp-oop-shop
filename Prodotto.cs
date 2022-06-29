@@ -45,12 +45,28 @@ namespace csharp_oop_shop
 
         public string getNomeEsteso()
         {
-            return Codice + Nome;
+            return Codice + " - " + Nome;
         }
 
         public float getPrezzoIva()
         {
-            return Prezzo * (1 + Iva);
+            return Prezzo * (1 + Iva / 100);
+        }
+
+        public string getPaddedCodice()
+        {
+            string strCodice = Codice.ToString();
+            int zerosNum = 8 - strCodice.Length;
+            string paddedCodice = "";
+
+            for (int i = 0; i < zerosNum; i++)
+            {
+                paddedCodice += "0";
+            }
+
+            paddedCodice += strCodice;
+
+            return paddedCodice;
         }
     }
 }
